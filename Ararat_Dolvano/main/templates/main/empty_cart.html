@@ -1,0 +1,49 @@
+{% extends 'main/base.html' %}
+{% load static %}
+{% block title %} Empty {% endblock %}
+
+{% block content %}
+
+          <section class="sec category_banner">
+            <div class="position-relative overflow-hidden">
+                <img src="{% static 'main/images/dolvano_banner_2.jpg' %}" alt="img" width="100%" height="50%">
+                <div class="item_attributs">
+                    <!-- <p>BP-007</p>
+                <a href="#" class="btn btn-outline-primary banner-btn">Заказать</a> -->
+                </div>
+            </div>
+        </section>
+
+     <section class="sec py-5">
+	<div class="row-center">
+        
+        <div class="container-fluid  mt-100">
+				 <div class="row">
+				 
+					<div class="col-md-12">
+					
+							<div class="card">
+						<div class="card-body cart">
+								<div class="col-sm-12 empty-cart-cls text-center">
+									<img src="{% static 'main/images/empty_cart.png' %}" width="130" height="130" class="img-fluid mb-4 mr-3" alt="empty">
+									<h3 class="text-white"><strong>Your Cart is Empty</strong></h3>
+									<h4 class="text-white">Go to shop pages and add something</h4>
+									<a href="{% url 'main:wallclocks_list' %}" class="btn btn-primary cart-btn-transform m-3" data-abc="true">Start shopping</a>
+
+								
+								</div>
+						</div>
+				</div>
+
+					
+					</div>
+				 
+				 </div>
+				
+				</div>
+
+	</div>
+     </section>
+
+
+{% endblock content %}

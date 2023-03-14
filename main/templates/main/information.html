@@ -1,0 +1,44 @@
+{% extends 'main/base.html' %}
+{% load static %}
+{% block title %} Decorations {% endblock %}
+
+
+{%block content%}
+
+    <main>
+        <section class="sec category_banner">
+            <div class="position-relative overflow-hidden">
+                <img src="{% static 'main/images/dolvano_banner_2.jpg' %}" alt="img" width="100%" height="50%">
+                <div class="item_attributs">
+                </div>
+            </div>
+        </section>
+
+        <section class="sec dolvano_info py-5">
+            <h1 class="fs-xx-large text-center mb-3" style="color: white;">DOLVANO COMPANY</h1>
+            {% for info in information %}
+            <div class="container">
+                <div class="row mt-5">
+                    <div class="col-md-6 col-12 my-4">
+                        <img src="{{ info.image1.url }}" alt="img" width="100%">
+                    </div>
+                    <div class="col-md-6 col-12">
+                        <h3 class="text-center" style="color: white;">My Info</h3>
+                        <p style="color: gray">{{ info.description1 }}</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 col-12">
+                        <h3 class="text-center" style="color: white;">My Info</h3>
+                        <p style="color: gray">{{ info.description2 }}</p>
+                    </div>
+                    <div class="col-md-6 col-12 my-4">
+                        <img src="{{ info.image2.url }}" alt="img" width="100%">
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </section>
+
+    </main>
+{% endblock %}

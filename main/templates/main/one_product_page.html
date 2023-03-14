@@ -1,0 +1,137 @@
+{% extends 'main/base.html' %}
+{% load static %}
+{% block title %} {{product.name}} {% endblock %}
+
+{% block content %}
+
+<main>
+    <section class="category_banner">
+        <div class="position-relative overflow-hidden">
+            <div class="col-12 p-2 y-5 position-relative">
+                <img src="{{product.background_photo.url}}" alt="..." width="100%">
+                    <!-- <div class="position-absolute">
+                        <h2 class="text-white">Lorem ipsum dolor sit amet.</h2>
+                        <button class="btn btn-danger fs-xx-large" style="border-radius: 12px;">BUY NOW</button>
+                    </div> -->
+
+            </div>
+        </div>
+    </section>
+
+    <section class=" dolvano_info py-5">
+        <div class="container">
+        <!-- <h1 class="fs-xx-large text-center mb-3" style="color: white;">{{ product.name }}</h1> -->
+
+            <div class="row mt-3">
+                <div style="border-radius: 12px;" class="col-6 d-flex justify-content-center align-items-center overflow-hidden">
+                    <img src="{{product.info_image_1.url}}" alt="..." width="100%" style="border-radius: 12px;">
+                </div>
+                <div class="col-6 d-flex flex-column justify-content-center align-items-center">
+                    <h3 class="text-white">{{ product.info_header_1 }}</h3>
+                    <p class="text-white">{{product.info_description_1}}</p>
+                </div>
+            </div>
+
+            <div class="row mt-3 d-flex flex-row-reverse">
+                <div style="border-radius: 12px;" class="col-6 d-flex justify-content-center align-items-center overflow-hidden">
+                    <img src="{{product.info_image_1.url}}" alt="..." width="100%" style="border-radius: 12px;">
+                </div>
+                <div class="col-6 d-flex flex-column justify-content-center align-items-center">
+                    <h3 class="text-white">{{ product.info_header_2 }}</h3>
+                    <p class="text-white">{{product.info_description_2}}</p>
+                </div>
+            </div>
+
+            <div class="row my-3">
+                <div style="border-radius: 12px;" class="col-6 d-flex justify-content-center align-items-center overflow-hidden">
+                    <img src="{{product.info_image_1.url}}" alt="..." width="100%" style="border-radius: 12px;">
+                </div>
+                <div class="col-6 d-flex flex-column justify-content-center align-items-center">
+                    <h3 class="text-white">{{ product.info_header_3 }}</h3>
+                    <p class="text-white">{{product.info_description_3}}</p>
+                </div>
+            </div>
+        </div>
+        </div>
+        
+    </section>
+
+
+    <section class=" slider_product my-5">
+
+                <div class="col">
+                    <div class="swiper mySwiper my-3">
+                        <!-- Additional required wrapper -->
+                        <div class="swiper-wrapper my-4">
+                          <!-- Slides -->
+                          <div class="swiper-slide"><img src="{{product.slider_photo_1.url}}" alt="..." width="100%"></div>
+                          <div class="swiper-slide"><img src="{{product.slider_photo_2.url}}" alt="..." width="100%"></div>
+                          <div class="swiper-slide"><img src="{{product.slider_photo_3.url}}" alt="..." width="100%"></div>
+                          <div class="swiper-slide"><img src="{{product.slider_photo_4.url}}" alt="..." width="100%"></div>
+                          <div class="swiper-slide"><img src="{{product.slider_photo_5.url}}" alt="..." width="100%"></div>
+                          ...
+                        </div>
+                        <!-- If we need pagination -->
+                        <div class="swiper-pagination"></div>
+                      
+                        <!-- If we need navigation buttons -->
+                        <div class="swiper-button-prev"></div>
+                        <div class="swiper-button-next"></div>
+                      
+                        <!-- If we need scrollbar -->
+                        <div class="swiper-scrollbar"></div>
+                    </div>
+                </div>
+
+
+
+    </section>
+
+
+    <style>
+        .swiper-pagination-bullet-active{
+            background-color: var(--color1_active);
+            margin-top: 25px;
+        }
+    </style>
+
+    <section class="sec sec_2 py-5" >
+
+                    <div class='embed-container position-relative'>
+
+                        <iframe src='{{product.youtube_link}}' frameborder='0'
+                            allowfullscreen></iframe>
+                        <div class="dolvano_video_play position-absolute overflow-hidden z-0">
+                            <img class="video_play_banner" src="{{product.image1.url}}" width="100%">
+                            <div class="video_play position-absolute top-50 start-50 translate-middle">
+                            <div class="video_triangle"></div>
+                        </div>
+                        </div>
+
+
+
+                    </div>
+
+    </section>
+</main>
+
+<script>
+    var swiper = new Swiper(".mySwiper", {
+        initialSlide: 2,
+        slidesPerView: 2,
+        spaceBetween: 30,
+        centeredSlides: true,
+        navigation: {
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev",
+        },
+        pagination: {
+            el: ".swiper-pagination",
+            clickable: true,
+        },
+        loop: true,
+    });
+</script>
+
+
+{% endblock %}

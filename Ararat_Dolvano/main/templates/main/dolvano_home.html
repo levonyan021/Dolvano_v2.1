@@ -1,0 +1,67 @@
+{% extends 'main/base.html' %}
+{% load static %}
+{% block title %} Dolvano Home {% endblock %}
+
+
+{%block content%}
+
+    <main>
+        <section class="sec category_banner">
+            <div class="position-relative overflow-hidden">
+                <img src="{% static 'main/images/dolvano_banner_2.jpg' %}" alt="img" width="100%" height="50%">
+                <div class="item_attributs">
+                    <!-- <p>BP-007</p>
+                <a href="#" class="btn btn-outline-primary banner-btn">Заказать</a> -->
+                </div>
+            </div>
+        </section>
+
+        <section class="sec py-5">
+            <div class="container">
+                <div class="row justify-content-around">
+                    <h1 class="text-white text-uppercase text-center">Dolvano Home</h1>
+                </div>
+            </div>
+            <div class="container-sm">
+                <div class="row sec_1_2">
+                    {%for item in dolvano_home %}
+                <div class="product__card__col col d-flex flex-column mb-3">
+                    <div class="product__card position-relative z-0">
+                        <a href="{% url 'main:product_page' product_pk=item.pk %}" class="product_hide position-absolute w-100 h-100 z-3"></a>
+                        <div class="product__card__image position-absolute start-50 top-50 translate-middle z-2">
+                            <img src="{{item.card_photo.url}}" alt="image" width="100%" class="z-2">
+                        </div>
+                        <div class="product__add__button position-absolute z-3 end-0 m-4">
+                            <div  data-id="{{ item.pk }}" data-action="add"  class="add-btn update-cart product__add__button__circle d-flex justify-content-center align-items-center">
+                                <span ><i class="fa-solid fa-plus text-white"></i></span>
+                            </div>
+                        </div>
+                    </div>
+                    <footer class="mt-3">
+                        <h1 class="text-white fs-5">{{item.name}}</h1>
+                        <p class="text-white fs-6">{{item.price}}$</p>
+                    </footer>
+                </div>
+                {%endfor%}
+                </div>
+                <div class="pagination d-flex justify-content-center">
+                    <span class="step-links">
+                      {% if dolvano_home.has_previous %}
+                        <a href="?page=1" class="text-white">&laquo; first</a>
+                        <a href="?page={{ dolvano_home.previous_page_number }}">previous</a>
+                      {% endif %}
+                  
+                      <span class="current-page text-white">
+                        {{ dolvano_home.number }} of {{ dolvano_home.paginator.num_pages }}
+                      </span>
+                  
+                      {% if dolvano_home.has_next %}
+                        <a href="?page={{ dolvano_home.next_page_number }}" class="text-white">next</a>
+                        <a href="?page={{ dolvano_home.paginator.num_pages }}" class="text-white">last &raquo;</a>
+                      {% endif %}
+                    </span>
+                  </div>
+            </div>
+        </section>
+    </main>
+{% endblock %}

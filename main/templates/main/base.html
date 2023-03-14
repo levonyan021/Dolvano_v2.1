@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+
+{% load static %}
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap5 link -->
+    <link rel="shortcut icon" href="{% static 'main/images/favicon.ico' %}" type="image/x-icon">
+        
+    <link rel="stylesheet" href="{% static 'main/css/owl.carousel.min.css' %}">
+    <link rel="stylesheet" href="{% static 'main/css/owl.theme.default.css' %}">
+    <link rel="stylesheet" href="{% static 'main/css/owl.theme.default.css' %}">
+    <link rel="stylesheet" href="{% static 'main/css/bootstrap.min.css'%}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+        integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link rel="stylesheet" href="{% static 'main/css/style.css' %}">
+    <!-- <link rel="stylesheet" href="{% static 'main/css/cart.css' %}"> -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"/>
+    <title>{% block title %}{% endblock %} - Dolvano</title>
+
+    <script type="text/javascript">
+        let user = '{{ user }}'
+
+        function getToken(name){
+            let cookieValue =null
+            if (document.cookie && document.cookie!==''){
+                let cookies = document.cookie.split(';')
+                for (let i=0; i<cookies.length;i++){
+                    let cookie = cookies[i].trim()
+                    if (cookie.substring(0, name.length+1) === (name+'='))
+                    {
+                        cookieValue = decodeURIComponent(cookie.substring(name.length+1))
+                        break
+                    }
+                }
+            }
+            return cookieValue
+        }
+
+        let csrftoken = getToken('csrftoken')
+
+    </script>
+
+</head>
+
+
+
+<body>
+
+    <div class="search_panel position-fixed ">
+        <div class="container">
+            <div class="row">
+                <div class="col-4">
+
+                </div>
+                
+                <div class="col-4 mt-3 d-flex align-items-center justify-content-center">
+                    <div class="search-container">
+                        <form action="{% url 'main:live_search' %}#search_result" method="get" class="d-flex justify-content-center align-items-center flex-column">
+                            <!-- <h1 class="text-white">Search Product</h1> -->
+                            <div class="col">
+                                <input type="text" name="q" class="search_input">
+                                <input type="submit" value="Search">
+                            </div>
+                            
+                        </form>
+                      </div>
+                      
+                    </div>
+
+                </div>
+                <div class="col-4 mt-2">
+                    <button type="button w-50"
+                        class="btn-close search_close_btn shadow-none position-absolute bg_gray"
+                        aria-label="Close"></button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+
+    <div class="float_menu position-fixed menu_close bg_gray">
+        <button type="button" class="btn-close menu_btn shadow-none position-absolute top-1 end-1"
+            aria-label="Close"></button>
+        <ul class="list-group list-group-flush float_menu_ul position-absolute bottom-50 w-100">
+            <li class="list-group-item mx-3 fs-3 text-uppercase bg_transparent float_menu_item_1" id="float_menu_link">
+                <a href="{% url 'main:index' %}">Home</a></li>
+            <li class="list-group-item mx-3 fs-3  text-uppercase bg_transparent float_menu_item_2" id="float_menu_link">
+                <a href="{% url 'main:wallclocks_list' %}">wall clocks</a></li>
+            <li class="list-group-item mx-3 fs-3  text-uppercase bg_transparent float_menu_item_3" id="float_menu_link">
+
+                <a href="{% url 'main:decorations_link' %}">Decorations</a></li>
+
+            <li class="list-group-item mx-3 fs-3  text-uppercase bg_transparent float_menu_item_4" id="float_menu_link">
+                <a href="{% url 'main:information' %}">Information</a></li>
+        </ul>
+    </div>
+
+
+
+    <!-- Hedader start -->
+    <header class="header position-fixed z-3 w-100">
+        <div class="container-fluid">
+            <div class="header_ row p-3 z-1">
+                <div class="col-4 d-flex align-items-center">
+                    <a href="#none" class="text-center menu_btn "><i class="fa-solid fa-bars fs-5"></i></a>
+                    <a href="https://www.google.com/maps/place/Glass+M-Decor/@40.1940788,44.4621897,19z/data=!4m6!3m5!1s0x406abd8244e54ff3:0xb1da27b582e57db4!4b1!8m2!3d40.1940782!4d44.4624829"
+                        target="_blank"><i class="fa-solid fa-location-dot mx-3 fs-5"></i></a>
+                        <a href="tel:+37499212171" class="header_phone_number"></a>
+
+                </div>
+                <div class="col-4 text-center">
+                    <div class="logo mx-auto">
+                        <a href="{% url 'main:index' %}">
+                            <img src="{% static 'main/images/dolvano_logo.png' %}" alt="logo" width="200px">
+                        </a>
+                    </div>
+                </div>
+
+                <div class="col-4 d-flex align-items-center justify-content-end">
+                    <a href="{% url 'cart' %}" class="position-relative">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill text-danger">{{ total_cart_items }}</span>
+                      </a>                      
+                    <a href="#" class=" search_btn"><i class="fa-solid fa-magnifying-glass float-end fs-5 mx-3"></i></a>
+                    {% if user.is_authenticated %}
+                    <a href="#" class=""><i class="fa-solid fa-user float-end fs-5"></i></a>
+                    <a href="{% url 'main:logout' %}" class="mx-2"><i class="fa-solid fa-right-to-bracket float-end fs-5"></i></a>
+                    {% else %} 
+                    <a href="{% url 'main:login' %}#login_form" class=""><i class="fa-solid fa-right-to-bracket float-end fs-5"></i></a>
+                    {% endif %}
+                </div>
+            </div>
+            <div class="header_nav position-relative">
+                <div class=" p-1 position-absolute navigation_row">
+                    <nav class="navbar navbar-expand-sm navbar-light ">
+                        <div class="container">
+                            <div class="collapse navbar-collapse d-flex justify-content-around" id="navbarID">
+                                <!-- <div class="navbar-nav">
+                                    <a class="nav-link {% if navbar == 'index' %} nav-link-active {% endif %}" aria-current="page" href="{% url 'main:index' %}">Home</a>
+                                </div> -->
+                                <div class="navbar-nav">
+                                    <a class="nav-link {% if navbar == 'showClocks' %} nav-link-active {% endif %}" aria-current="page" href="{% url 'main:wallclocks_list' %}">clocks</a>
+                                </div>
+
+                                <div class="navbar-nav">
+                                    <a class="nav-link {% if navbar == 'decorations_link' %} nav-link-active {% endif %}" aria-current="page" href="{% url 'main:decorations_link' %}">mirror decor</a>
+                                </div>
+
+                                    <!--  -->
+                                <div class="navbar-nav">
+                                    <a class="nav-link {% if navbar == 'fireplace_list' %} nav-link-active {% endif %}" aria-current="page" href="{% url 'main:fireplace_list' %}">bio fireplace</a>
+                                </div>
+                                    <!--  -->
+                                <div class="navbar-nav">
+                                    <a class="nav-link {% if navbar == 'dolvano_home_list' %} nav-link-active {% endif %}" aria-current="page" href="{%url 'main:dolvano_home_list'%}">dolvano home</a>
+                                </div>
+
+                                <div class="navbar-nav">
+                                    <a class="nav-link {% if navbar == 'special_orders_list' %} nav-link-active {% endif %}" aria-current="page" href="{% url 'main:special_orders_list' %}">special orders</a>
+                                </div>
+
+                                <div class="navbar-nav">
+                                    <a class="nav-link {% if navbar == 'information' %} nav-link-active {% endif %}" aria-current="page" href="{% url 'main:information' %}">Information</a>
+                                </div>
+
+                            </div>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+
+        </div>
+        </div>
+    </header>
+    <!-- Header end -->
+
+
+
+    {% block content %}
+
+    {% endblock %}
+
+
+
+    <!-- Footer start -->
+    <footer class="sec position-relative">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center mt-5">
+                    <p class="fs-xx-large text-light">Subscribe us</p>
+                </div>
+                <div class="col-12">
+
+                </div>
+            </div>
+            <div class="input-group subscribe_ mb-3 mt-1 mx-auto">
+                <input type="text" class="form-control shadow-none p-3 " placeholder="email@example.com"
+                    aria-label="Recipient's username" aria-describedby="button-addon2">
+                <button class="btn btn-outline-secondary" type="button" id="button-addon2">Subscribe</button>
+            </div>
+
+            <div class="row footer_items_icons m-4 justify-content-around">
+
+                <div
+                    class="col-sm-3 footer_items_icon d-flex flex-column  align-items-center justify-content-center pt-4 mt-4">
+                    <i class="fa-solid fa-location-dot fs-xx-large mb-3"></i>
+                    <p class="text-uppercase text-light">location</p>
+                </div>
+
+                <div
+                    class="col-sm-3 footer_items_icon d-flex flex-column  align-items-center justify-content-center pt-4 mt-4">
+                    <i class="fa-solid fa-phone fs-xx-large mb-3"></i>
+                    <p class="text-uppercase text-light">Contact us</p>
+                </div>
+
+                <div
+                    class="col-sm-3 footer_items_icon d-flex flex-column  align-items-center justify-content-center pt-4 mt-4">
+                    <i class="fa-solid fa-star fs-xx-large mb-3"></i>
+                    <p class="text-uppercase text-light">offer</p>
+                </div>
+
+                <div
+                    class="col-sm-3 footer_items_icon d-flex flex-column  align-items-center justify-content-center pt-4 mt-4">
+                    <i class="fa-solid fa-heart fs-xx-large mb-3"></i>
+                    <p class="text-uppercase text-light">love</p>
+                </div>
+
+            </div>
+
+            <div class="row footer_categories m-4 justify-content-around m-5">
+                <div
+                    class="col-sm-4 footer_category d-flex flex-column  align-items-center justify-content-center mb-4">
+                    <h5 class="text-light text-uppercase fs-xx-large">Company</h5>
+                    <div class="align-items-center">
+                        <a href="#">History</a> <br>
+                        <a href="#">Awards</a> <br>
+                        <a href="#">Contacts</a> <br>
+                        <a href="#">Official dealers</a> <br>
+                    </div>
+                </div>
+                <div
+                    class="col-sm-4 footer_category d-flex flex-column  align-items-center justify-content-center mb-4">
+                    <h5 class="text-light text-uppercase fs-xx-large">Support</h5>
+                    <div class="align-items-start">
+                        <a href="#">Service centres</a> <br>
+                        <a href="#">Hot line</a> <br>
+                        <a href="#">Payment</a> <br>
+                        <a href="#">Delivery</a> <br>
+                    </div>
+                </div>
+                <div
+                    class="col-sm-4 footer_category d-flex flex-column  align-items-center justify-content-center mb-4">
+                    <h5 class="text-light text-uppercase fs-xx-large">Popular</h5>
+                    <div class="align-items-start">
+                        <a href="#">Glasses</a> <br>
+                        <a href="#">Accessories</a> <br>
+                        <a href="#">Item3</a> <br>
+                        <a href="#">Item4</a> <br>
+                    </div>
+                </div>
+            </div>
+            <div class="row m-4">
+                <div class="col-sm-12 d-flex justify-content-center">
+                    <a href="https://www.facebook.com/Dolvano" target="_blank" class="m-2 fs-xx-large"><i
+                            class="fa-brands fa-facebook"></i></a>
+                    <a href="#" class="m-2 fs-xx-large"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#" class="m-2 fs-xx-large"><i class="fa-brands fa-twitter"></i></a>
+                    <a href="#" class="m-2 fs-xx-large"><i class="fa-brands fa-youtube"></i></a>
+                </div>
+            </div>
+            <div class="row mt-4">
+                <div class="col-sm-12">
+                    <p class="text-center text-light">&copy; 2023 DOLVANO. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Footer end -->
+
+    <!-- Bootstrap5 js -->
+    <script src="{% static 'main/js/bootstrap.bundle.min.js' %}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+    <script src="{% static 'main/js/jquery.min.js' %}"></script>
+    <script src="{% static 'main/js/cart_functionality.js' %}"></script>
+    <script src="{% static 'main/js/owlcarusel/owl.carousel.min.js' %}"></script>
+    <script src="{% static 'main/js/main.js' %}"></script>
+</body>
+
+</html>
