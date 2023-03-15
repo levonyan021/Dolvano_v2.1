@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 
 {% load static %}
+{% load sass_tags %}
+
 
 <html lang="en">
 
@@ -20,6 +22,7 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <link rel="stylesheet" href="{% static 'main/css/style.css' %}">
+
     <!-- <link rel="stylesheet" href="{% static 'main/css/cart.css' %}"> -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"/>
     <title>{% block title %}{% endblock %} - Dolvano</title>
@@ -49,7 +52,7 @@
 
 </head>
 
-
+{% block extra_css %} {%endblock%}
 
 <body>
 
@@ -188,7 +191,6 @@
     {% block content %}
 
     {% endblock %}
-
 
 
     <!-- Footer start -->

@@ -229,3 +229,23 @@ $('.popular').owlCarousel({
 })
 
 
+// Modal registration
+
+var modal = document.querySelector('.modal');
+var closeButton = document.querySelector('.close');
+
+function showModal() {
+  modal.style.display = 'block';
+}
+
+function hideModal() {
+  modal.style.display = 'none';
+}
+
+window.addEventListener('click', function(event) {
+  if (event.target == modal) {
+    hideModal();
+  }
+});
+
+closeButton.addEventListener('click', hideModal);

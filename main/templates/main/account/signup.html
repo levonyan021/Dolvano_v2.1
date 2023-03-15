@@ -1,20 +1,91 @@
-{% block content %}
-  <h2>Sign up</h2>
-  <form method="post">
-    {% csrf_token %}
-      {% for field in form %}
-      <p>
-        {{ field.label_tag }}<br>
-        {{ field }}
-        {% if field.help_text %}
-          <small style="display: none">{{ field.help_text }}</small>
-        {% endif %}
-        {% for error in field.errors %}
-          <p style="color: red">{{ error }}</p>
-        {% endfor %}
-      </p>
-      {% endfor %}
+{% extends 'main/null.html' %}
+{% load static %}
+{% block title %} Sign Up {% endblock %}
 
-    <button type="submit">Sign up</button>
-  </form>
-{% endblock %}
+{%block content%}
+<style>
+  label,
+  h1 {
+    color: white;
+  }
+</style>
+
+  <div class="d-flex justify-content-center">
+    <div class="col-md-6">
+      <h2 class="text-white">Sign up</h2>
+
+      <form class="form-horizontal" method="post">
+        {% csrf_token %}
+        <div class="form-group rounded ">
+          <label for="{{ form.username.id_for_label }}" class="col-sm-2 control-label">Username</label>
+          <div class="">
+            {{ form.username }}
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="{{ form.email.id_for_label }}" class="col-sm-2 control-label">Email</label>
+          <div class="">
+            {{ form.email }}
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="{{ form.password1.id_for_label }}" class="col-sm-2 control-label">Password</label>
+          <div class="">
+            {{ form.password1 }}
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="{{ form.password2.id_for_label }}" class="col-sm-6 control-label">Confirm Password</label>
+          <div class="">
+            {{ form.password2 }}
+          </div>
+        </div>
+        <!-- add more form fields as needed -->
+        <div class="form-group mt-3">
+          <div class="col-sm-offset-2 col-sm-10">
+            <button type="submit" class="btn btn-primary">Register</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+  <style>
+  .d-flex {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0,0,0,0.5);
+  }
+  .col-md-6 {
+    background-color: var(--color1);
+    margin: auto;
+    margin-top: 100px;
+    padding: 20px;
+    border-radius: 5px;
+  }
+  input{
+    background-color: gray;
+    border-radius: 8px;
+    border: none;
+    box-shadow:none;
+    width: 200px;
+  }
+  input:focus{
+    outline: none;
+  }
+  </style>
+
+  {%endblock%}
