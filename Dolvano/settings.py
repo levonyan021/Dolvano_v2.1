@@ -26,8 +26,8 @@ SECRET_KEY = 'django-insecure-a_%=g6m(i@_v%_j0=tkcsug=r=d-ju18y49klh52r%)zke!ihb
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = []
-BASE_URL = 'https://127.0.0.1:8000/'
+ALLOWED_HOSTS = ['xn--y9ahu1beck3f.xn--y9a3aq','www.xn--y9ahu1beck3f.xn--y9a3aq/','www.xn--y9ahu1beck3f.xn--y9a3aq/', 'www.xn--y9ahu1beck3f.xn--y9a3aq/']
+BASE_URL = 'www.xn--y9ahu1beck3f.xn--y9a3aq/'
 
 
 # Application definition
