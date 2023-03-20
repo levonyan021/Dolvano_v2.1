@@ -811,3 +811,18 @@ background-color: gray;
     background-color: #4466f2!important;
     border-color: #4466f2!important;
 }
+.mini_navbar{
+    display: none;
+}
+@media only screen and (max-width: 400px) {
+    .mini_navbar{
+        display: block;
+    }
+    .index-banner{
+        height: 60vh;
+    }
+    .banner-item img{
+        height: 60vh;
+        scale: 3;
+    }
+}

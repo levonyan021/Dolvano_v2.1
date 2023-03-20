@@ -173,16 +173,16 @@ $('.dolvano_video_play').on('click', function () {
 //     }, 2000);
 // });
 // ________________________LOADER_____________________________
-$('body').append('<div style="" id="loadingDiv"><div class="loader">Loading...</div></div>');
-$(window).on('load', function(){
-  setTimeout(removeLoader, 2000); //wait for page load PLUS two seconds.
-});
-function removeLoader(){
-    $( "#loadingDiv" ).fadeOut(500, function() {
-      // fadeOut complete. Remove the loading div
-      $( "#loadingDiv" ).remove(); //makes page more lightweight 
-  });  
-}
+// $('body').append('<div style="" id="loadingDiv"><div class="loader">Loading...</div></div>');
+// $(window).on('load', function(){
+//   setTimeout(removeLoader, 2000); //wait for page load PLUS two seconds.
+// });
+// function removeLoader(){
+//     $( "#loadingDiv" ).fadeOut(500, function() {
+//       // fadeOut complete. Remove the loading div
+//       $( "#loadingDiv" ).remove(); //makes page more lightweight 
+//   });  
+// }
 
 
 var swiper = new Swiper(".mySwiper", {
@@ -211,6 +211,19 @@ $(document).ready(function() {
   });
 
 
+
+
+$('.mini_navigation').owlCarousel({
+    loop: false,
+    margin:10,
+    nav:false,
+    responsive:{
+        0:{
+            items:3
+        }
+    }
+})
+
 $('.popular').owlCarousel({
     loop: false,
     margin:10,
@@ -227,8 +240,6 @@ $('.popular').owlCarousel({
         }
     }
 })
-
-
 // Modal registration
 
 var modal = document.querySelector('.modal');

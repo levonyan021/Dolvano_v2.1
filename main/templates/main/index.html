@@ -100,11 +100,11 @@ nav-link-active
     }
 </style>
 <main>
-    <div class="container-fluid p-0">
-        <div class="owl-carousel owl-theme owl-loaded dolvano_banner">
+    <div class="container-fluid p-0 index-banner">
+        <div class="owl-carousel owl-theme owl-loaded dolvano_banner overflow-hidden">
 
             <div class="item position-relative overflow-hidden banner-item">
-                <img src="{% static 'main/images/dolvano_banner.jpg' %}" alt="img" width="100%">
+                <img src="{% static 'main/images/dolvano_banner.jpg' %}" alt="img" >
                 <div class="item_attributs">
                     <!-- <p>BP-007</p>
                     <a href="#" class="btn btn-outline-primary banner-btn">Заказать</a> -->
@@ -113,7 +113,7 @@ nav-link-active
 
 
             <div class="item position-relative overflow-hidden banner-item">
-                <img src="{% static 'main/images/banner.JPG' %}" alt="img" width="100%">
+                <img src="{% static 'main/images/banner.JPG' %}" alt="img" >
                 <div class="item_attributs">
                     <!-- <p>BP-008</p>
                     <a href="#" class="btn btn-outline-primary banner-btn">Заказать</a> -->
@@ -122,7 +122,7 @@ nav-link-active
 
 
             <div class="item position-relative overflow-hidden banner-item">
-                <img src="{% static 'main/images/banner2.JPG' %}" alt="img" width="100%">
+                <img src="{% static 'main/images/banner2.JPG' %}" alt="img">
                 <!-- <div class="item_attributs_chaynik">
                         <p>BP-009</p>
                         <a href="#" class="btn btn-outline-primary banner-btn">Заказать</a>
@@ -142,6 +142,35 @@ nav-link-active
     </div>
 
     <!-- ----------------------------------------------------------------------------- -->
+
+    <section class="mini_navbar">
+        <div class="container py-5">
+            <div class="row owl-carousel mini_navigation">
+                <div class="item col d-flex flex-column align-items-center">
+                    <a href="#"><img src="{% static 'main/images/clock_svg_50x50.svg' %}" alt=""></a>
+                    <a href="#" class="mini_navbar_item">Clocks</a>
+                </div>
+                <div class="item col d-flex flex-column align-items-center">
+                    <a href="#"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAACXBIWXMAAAsTAAALEwEAmpwYAAAD+ElEQVR4nO2aaYyNVxjHf4OqQWMJDSpauyFNOya6iA9qrX1NrJ1oG4rGGtoSIbZExZIWTawfJLY2NCS+ID4gRIRYOlrSFm21TCrBoCimeZK/5O3l3vu+957zGuGfnA9z7jnP857znPMs/zPwHM8GKgPtganAEmAFMBsYAtTnKUAesAa4DpSmaPuBwUA5yqAFvgb+1Yf+CXwDFMoybYHewCzgQGBBR4F8ygiaAqf1YT9rpyuEsNy3wAPgNvAJTxhvAJe1iGVAbsT5PYFizZ/JE0JD4C/gHjA6CzmNgV+0mHHEjBeAw1I+3oE882S/Afd1p2LDXC1iuUOZbwF3gHMZHNGMUA+4CZwBKoWcUyXkuBnaIIs/3rFSysydpkNVYCnw6WN+a6EjGkQucAG4AlTHI15TrNgbYmwj4EegCKgY6C+nnR+ZZN4wbZTFHG+YJiUd0oxrK7d6FWgV6Ldd3glsB3KSzM0BflVMSjYma5yQ6VOlFq8D12S5LoH+V4Gf1Kql0TNbG/Y2HpAn4fNTjKmjhd4CBgb6zSp/yErNQuhqoqi/GA/4OM0u2THYDVxKGPOOLq9ZqSCCvh+AQ3jACuVFLyb5vT+wBagb6OsI3AD+Ad6LqG+t3Hx5HONgmh1KdJdmlRLdlb4Z6BulE9ASx7C8alWE+/S3LNEnQ33vaiE9cAwz85yQedN5WaNzlklpqapKZ6gQMkG0SH5KqX3rLHVWkc5sMuukQj9IMca81lbgpKK6C9wGJjmS9T+hqSo5qyU2RkgQw56CQhzjd2BKikA43LG+mlrI+47lcgyYR3xoqIVke9cewXrgO+JDN+CuGBqnGAOcJT58ARzxIfhN1dTmYuPAJjEzzlFexFsm6UYmHqsY6OVLwQJgA/7RWVl0YinsDM3F6+bGwAss9KyDXUnIBFeorfrFiiuvaCkyzblbFKwqXERMsCLrMw9yX1Gp7JUKSkwfisTbusQO12l7GFjqsM/hxZ/si2wIg65yx9m6yQHAah/1eRQYe74OeCnD+SOAL8vKM1w94CugXYQ5tZRNh+GQveJlvf8Zb9VJzSL/ZqB7oO9xzbjf70VM2N9tlMvVJibYxZ4o8qzUUzsFTIjwZBEZrcSum7KLKmuNVfk8oS0I2RLnGd+7QbJL9cAaJMCdIE9pQ4nq9mRsowtUFDlXIm7M8jtnKfVDiic/5jhVDBx35ZY/lKn7ET/6u2RS9ogK2qFH/k1Ks5fprM/Sm98o/bNAT8WWAqUwVdUaq6+9aNBBmjNFXsxkLZbsddK1TQ+kxvJnjY8kfKmUzdXlnKgPGa6de+hGLTtuANRIeHHKUV8DjWmjOTZ3qGSNlezp0rVQuu1UPAdPE/4DV2L8QS/INsEAAAAASUVORK5CYII="></a>
+                    <a href="#" class="mini_navbar_item">M. Decor</a>
+                </div>
+                <div class="item col d-flex flex-column align-items-center">
+                    <a href="#"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAACXBIWXMAAAsTAAALEwEAmpwYAAADR0lEQVR4nO2Yy0tVURTGfz4Cpew5iDJ7EIRQpDaKHtYg6AW9/oAGETVu0qBJSaPICDKrUdSgBpUVEk0iA81BD4qoLAc9rTAiQu0hZu7Y8R3YnM71nHu953qs+8HiHtdea+/97b3W2nsLeeSRRyZoB0xCpS0dIibhEhlpO+QI5r8i0p6AkDHZyJfRnlTW8iWp4ZQKOSMyDjgCfJLUSzfmiNQHhIHV5YyIGWPyF9oSMCmTprQSgp8yLHZ0C4FnQAcwM8S/HOgKGLgrom+HxrJjjij8PSLTgZXACeC709EboDqFb7XavYl/1u/bCL41jq/RmI3ACmDaSIi48gs4CTzU39amAVgElOi3wfF9rNX1MAt46vge8/keBwbV/gA4BQxFzYswIn0avNFZxcnA5ZDYvSQ7P6L6TnJ2qFFz6MuEyGBAjvixGmgCPgADCp1zQG2E/q3veYXcgPqwBFaF+GVMpIhkwcSxI6lgw6EOuKXK81Viv1uAA7LJBCYXO7JNZTPqGWBttyaJyBzgtu+ssBVoHVAJjJfY7/VKXveMsQfx7LiI/IpIZBnQLdv3wK6I4VgIbFeSG10qwxI9th2xh1S/7JqBMtLHROCa+vgBLM81kbnAR9k0aIXDkOoKX6Rws311h4RZVkOrwMmJ5ggkSvQu2TCMTZGzM61xEClMUZ28nAgLpwrgkeztFWU42NPcy5nNuSDildidIX3Yib9z4j9oZ2f4dLtl/yRuIjVOiQ2raM3OwP0+e1uOLwJrfD7FDvmqOInUOQk+HOY7O/FC30vVNhW4L13Q26RRbfvjJNIivT3YgjBFIbdDdnbVD+n7tGy8pB5QePmxUe034yTSKf2CAJ9S4A7wGtgru8M60W1/34BNvmtKUFJXqu15NogMpSDSK31QtTrjDHRDv0fVdtbZBeMsyCuVZxdlauvNJpGCiB3VSu9/0e1zHlTeU9fKFuCevvekMWETN5Hr0h8ELsj/pe/sWKLbQKdWfa187iaJSI/09ibsHW5BiVzkhOsE+fQkiUjvMOU0FcqTSOSq9E2qXmEodXyuxEnEpNlRhf5/ZdKUL8C8XOxIOh1VZfDUXZyiLzNaO5JtmDwRH0zCJTL+GSJ55JEHf/AbkO4Tdu6IYqgAAAAASUVORK5CYII="></a>
+                    <a href="#" class="mini_navbar_item">Clocks</a>
+                </div>
+                <div class="item col d-flex flex-column align-items-center">
+                    <a href="#"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAACXBIWXMAAAsTAAALEwEAmpwYAAACUklEQVR4nO2Zv0scQRiGn6CHECE/sDhCQBMTFGKuMf0JIlGrBP+Eg4SAFjaGQJqr0mshKMhCOjEWgQh2/gFpFWwET4tgI3gmGENCwsArLMvtuXs3tztL9oEXhm9mvu8G9t2bnYGc/4vHwBvJtDPJLHAJ7EuXimWKZ/rhL32xGeAXMErKPAUqwOsI+gKsa96gZNhQX5QcFdW0yhTwGzgEDhroFLgIxOY1d9b3SM0HxlxobqOcNdWctLmQFeBTk/4qsNNC3h3NDWNTta3hSUkvxLumbmyuS/gW2AN6YuTs0ZyFNurGJphwGyhLpv0QOAH+xpSZ86BBvsQW0g8UJNM23ALGgImIGtOcsHyJLOQFUMQ+ReUOq9s2wYQfgBL2KSl3WN22sZ4wrbpeiNltU07L7LYpuGz2R1Lmzb4kZdrsd4Fz4AfQl2Bd62Y3W5cjybQzZ/abwDBwrL3UgtrD6nPa7FVgV98XV3upOnBHqvvipxpbddHsvcAW8AeYA+4D3b7+bsXmNGZLc5w0exewCnwHphv0jwNnwMeI/0Nemma/ASzrbWUWdkWXYssakwmzvwe+qn1PQjHT57TZ/XwG1oB3Mnld7TX1hVF0wex+vukExHwBvpJOFDN9YZRcMbthQAdxi8BtX7xXr9ufgcfHVl3rZjdnvENNcg01OQcuu2b2Vim4ZvZWKbpm9lYpuWR2p+t6+Td7PAq52SOSm71NvKRP4zsRS+003nasIwtZ0TVY0mzavnqb1Ba8FnJx2QnVVPM5lhmJcT1tQxXgie1F5OTkkG3+AUv5HTtqYy4SAAAAAElFTkSuQmCC"></a>
+                    <a href="#" class="mini_navbar_item">Special Orders</a>
+                </div>
+            </div>
+            <div class="row mt-3 ">
+                <div class="col d-flex justify-content-center align-items-center">
+                    <img src="{% static 'main/images/arrows.png' %}" alt="arrows" width="5%">
+                </div>
+            </div>
+        </div>
+    </section>
+
 
     <section class="mb-4">
         <div class="container">
@@ -216,6 +245,7 @@ nav-link-active
     </section>
 
     <!-- ----------------------------------------------------------------------------- -->
+
 
 
 
